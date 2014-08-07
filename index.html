@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.0.preview.7">
+<meta name="author" content="Andres Almiray">
+<title>Griffon Swingx Plugin 1.0.0-SNAPSHOT</title>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css">
+<link rel="stylesheet" href="./coderay-asciidoctor.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>Griffon Swingx Plugin 1.0.0-SNAPSHOT</h1>
+<span id="author" class="author">Andres Almiray</span><br>
+<span id="revnumber">version 1.0.0-SNAPSHOT</span>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_configuration">2. Configuration</a></li>
+<li>
+<ul class="sectlevel2">
+<li><a href="#_gradle">2.1. Gradle</a></li>
+<li>
+<ul class="sectlevel3">
+<li><a href="#_automatic">2.1.1. Automatic</a></li>
+<li><a href="#_manual">2.1.2. Manual</a></li>
+</ul>
+</li>
+<li><a href="#_maven">2.2. Maven</a></li>
+</ul>
+</li>
+<li><a href="#_modules">3. Modules</a></li>
+<li>
+<ul class="sectlevel2">
+<li><a href="#_swing">3.1. Swing</a></li>
+</ul>
+</li>
+<li><a href="#_links">4. Links</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Provides new UI components based on <a href="https://swingx.java.net/" target="_blank">SwingX</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>2. Configuration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_gradle"><a class="anchor" href="#_gradle"></a>2.1. Gradle</h3>
+<div class="paragraph">
+<p>You have two options for configuring this plugin: automatic and manual.</p>
+</div>
+<div class="sect3">
+<h4 id="_automatic"><a class="anchor" href="#_automatic"></a>2.1.1. Automatic</h4>
+<div class="paragraph">
+<p>As long as the project has the <code>org.codehaus.griffon.griffon</code> plugin applied to it you
+may include the following snippet in <code>build.gradle</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay nowrap"><code class="groovy language-groovy">dependencies {
+    griffon 'org.codehaus.griffon.plugins:griffon-swingx-plugin:1.0.0-SNAPSHOT'
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>griffon</code> plugin will take care of the rest given its configuration.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_manual"><a class="anchor" href="#_manual"></a>2.1.2. Manual</h4>
+<div class="paragraph">
+<p>You will need to configure any of the following blocks depending on your setup</p>
+</div>
+<div class="listingblock">
+<div class="title">Java + Swing</div>
+<div class="content">
+<pre class="CodeRay nowrap"><code class="groovy language-groovy">dependencies {
+    compile 'org.swinglabs.swingx:swingx-all:1.6.5-1'
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Groovy + Swing</div>
+<div class="content">
+<pre class="CodeRay nowrap"><code class="groovy language-groovy">dependencies {
+    compile 'org.codehaus.griffon.plugins:griffon-swingx-swing-groovy:1.0.0-SNAPSHOT'
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_maven"><a class="anchor" href="#_maven"></a>2.2. Maven</h3>
+<div class="paragraph">
+<p>First configure the <code>griffon-swingx-plugin</code> BOM in your POM file, by placing the following
+snippet before the <code>&lt;build&gt;</code> element</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay nowrap"><code class="xml language-xml"><span class="tag">&lt;dependencyManagement&gt;</span>
+    <span class="tag">&lt;dependencies&gt;</span>
+        <span class="tag">&lt;dependency&gt;</span>
+            <span class="tag">&lt;groupId&gt;</span>org.codehaus.griffon.plugins<span class="tag">&lt;/groupId&gt;</span>
+            <span class="tag">&lt;artifactId&gt;</span>griffon-swingx-plugin<span class="tag">&lt;/artifactId&gt;</span>
+            <span class="tag">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="tag">&lt;/version&gt;</span>
+            <span class="tag">&lt;type&gt;</span>pom<span class="tag">&lt;/type&gt;</span>
+            <span class="tag">&lt;scope&gt;</span>import<span class="tag">&lt;/scope&gt;</span>
+        <span class="tag">&lt;/dependency&gt;</span>
+    <span class="tag">&lt;/dependencies&gt;</span>
+<span class="tag">&lt;/dependencyManagement&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next configure dependencies as required by your particular setup</p>
+</div>
+<div class="listingblock">
+<div class="title">Java + Swing</div>
+<div class="content">
+<pre class="CodeRay nowrap"><code class="xml language-xml"><span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.swinglabs.swingx<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>swingx-all<span class="tag">&lt;/artifactId&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Groovy + Swing</div>
+<div class="content">
+<pre class="CodeRay nowrap"><code class="xml language-xml"><span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.codehaus.griffon.plugins<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>griffon-swingx-swing-groovy<span class="tag">&lt;/artifactId&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modules"><a class="anchor" href="#_modules"></a>3. Modules</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following sections display all bindings per module. Use this information to
+successfully override a binding on your own modules or to troubleshoot a module
+binding if the wrong type has been applied by the Griffon runtime.</p>
+</div>
+<div class="sect2">
+<h3 id="_swing"><a class="anchor" href="#_swing"></a>3.1. Swing</h3>
+<div class="paragraph">
+<p>Module name: <code>swingx-swing-groovy</code></p>
+</div>
+<div class="paragraph">
+<p>Depends on: <code>swing-groovy</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay nowrap"><code class="java language-java">bind(BuilderCustomizer.class)
+    .to(SwingxSwingBuilderCustomizer.class)
+    .asSingleton();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following nodes will become available on a Groovy View</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 100%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Node</th>
+<th class="tableblock halign-left valign-top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxalphaPainter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.AlphaPainter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxaltStripingHighlighter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.decorator.Highlighter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxbusyLabel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXBusyLabel</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxbusyPainter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.BusyPainter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxbutton</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXButton</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxcheckerboardPainter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.CheckerboardPainter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxcollapsiblePane</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXCollapsiblePane</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxcolorHighlighter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.decorator.ColorHighlighter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxcolorSelectionButton</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXColorSelectionButton</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxcolorTintFilter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.image.ColorTintFilter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxcolumnControlIcon</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.icon.ColumnControlIcon</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxcompoundPainter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.CompoundPainter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxdatePicker</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXDatePicker</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxdefaultTip</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.tips.DefaultTip</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxdefaultTipModel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.tips.DefaultTipOfTheDayModel</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxdialog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXDialog</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxdivider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.MultiSplitLayout.Divider</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxdropShadowBorder</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.border.DropShadowBorder</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxeditorPane</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXEditorPane</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxemptyIcon</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.icon.EmptyIcon</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxerrorPane</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXErrorPane</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxeyeDropperColorChooser</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.color.EyeDropperColorChooserPanel</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxfastBlurFilter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.image.FastBlurFilter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxfindBar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXFindBar</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxfindPanel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXFindPanel</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxframe</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXFrame</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxgaussianBlurFilter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.image.GaussianBlurFilter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxglossPainter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.GlossPainter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxglowPathEffect</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.effects.GlowPathEffect</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxgradientChooser</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXGradientChooser</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxgradientPreviewPanel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.color.GradientPreviewPanel</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxgraph</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXGraph</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxheader</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXHeader</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxhorizontalLayout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.HorizontalLayout</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxhyperlink</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXHyperlink</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxiconBorder</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.border.IconBorder</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jximagePainter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.ImagePainter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jximagePanel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXImagePanel</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jximageView</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXImageView</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxinnerGlowPathEffect</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.effects.InnerGlowPathEffect</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxinnerShadowPathEffect</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.effects.InnerShadowPathEffect</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxlabel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXLabel</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxleaf</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.MultiSplitLayout.Leaf</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxlist</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXList</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxlistComboBoxModel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.combobox.ListComboBoxModel</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxloginPanel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXLoginPane</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxmapComboBoxModel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.combobox.MapComboBoxModel</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxmattePainter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.MattePainter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxmonthView</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXMonthView</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxmultiSplitLayout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.MultiSplitLayout</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxmultiSplitPane</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXMultiSplitPane</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxneonBorderEffect</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.effects.NeonBorderEffect</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxpainterHighlighter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.decorator.PainterHighlighter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxpanel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXPanel</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxpinstripePainter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.PinstripePainter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxradioGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXRadioGroup</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxrectanglePainter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.RectanglePainter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxrootPane</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXRootPane</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxsearchPanel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXSearchPanel</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxshadowPathEffect</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.effects.ShadowPathEffect</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxshapePainter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.ShapePainter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxsimpleStripingHighlighter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.decorator.Highlighter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxsplit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.MultiSplitLayout.Split</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxstackBlurFilter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.image.StackBlurFilter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxstackLayout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.StackLayout</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxstatusBar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXStatusBar</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxtable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXTable</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxtableHeader</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXTableHeader</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxtaskPane</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXTaskPane</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxtaskPaneContainer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXTaskPaneContainer</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxtextPainter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.painter.TextPainter</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxtipOfTheDay</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXTipOfTheDay</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxtitledPanel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXTitledPanel</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxtitledSeparator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXTitledSeparator</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxtree</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXTree</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxtreeTable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.JXTreeTable</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jxverticalLayout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.jdesktop.swingx.VerticalLayout</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links"><a class="anchor" href="#_links"></a>4. Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="api/index.html">Javadoc</a></p>
+</div>
+<div class="paragraph">
+<p><a href="api-src/index.html">API Sources</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0.0-SNAPSHOT<br>
+Last updated 2014-08-07 10:47:31 CEST
+</div>
+</div>
+</body>
+</html>

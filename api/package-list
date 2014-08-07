@@ -1,0 +1,2 @@
+griffon.builder.swing
+org.codehaus.griffon.runtime.swing.swingx
