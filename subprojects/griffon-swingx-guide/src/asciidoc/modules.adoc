@@ -1,0 +1,107 @@
+
+[[_modules]]
+= Modules
+:subproject-base: {rootdir}/subprojects/griffon-swingx-
+:java-source: /src/main/java/
+:package-base: org/codehaus/griffon/runtime/
+:numbered:
+
+The following sections display all bindings per module. Use this information to
+successfully override a binding on your own modules or to troubleshoot a module
+binding if the wrong type has been applied by the Griffon runtime.
+
+== Swing
+
+Module name: +swingx-swing-groovy+
+
+Depends on: +swing-groovy+
+
+[source,java,options="nowrap"]
+----
+include::{subproject-base}swing-groovy{java-source}{package-base}swing/swingx/SwingxSwingGroovyModule.java[tags=bindings,indent=0]
+----
+
+The following nodes will become available on a Groovy View
+
+[options="2*,header"]
+|===
+| Node                        | Type
+| jxalphaPainter              | +org.jdesktop.swingx.painter.AlphaPainter+
+| jxaltStripingHighlighter    | +org.jdesktop.swingx.decorator.Highlighter+
+| jxbusyLabel                 | +org.jdesktop.swingx.JXBusyLabel+
+| jxbusyPainter               | +org.jdesktop.swingx.painter.BusyPainter+
+| jxbutton                    | +org.jdesktop.swingx.JXButton+
+| jxcheckerboardPainter       | +org.jdesktop.swingx.painter.CheckerboardPainter+
+| jxcollapsiblePane           | +org.jdesktop.swingx.JXCollapsiblePane+
+| jxcolorHighlighter          | +org.jdesktop.swingx.decorator.ColorHighlighter+
+| jxcolorSelectionButton      | +org.jdesktop.swingx.JXColorSelectionButton+
+| jxcolorTintFilter           | +org.jdesktop.swingx.image.ColorTintFilter+
+| jxcolumnControlIcon         | +org.jdesktop.swingx.icon.ColumnControlIcon+
+| jxcompoundPainter           | +org.jdesktop.swingx.painter.CompoundPainter+
+| jxdatePicker                | +org.jdesktop.swingx.JXDatePicker+
+| jxdefaultTip                | +org.jdesktop.swingx.tips.DefaultTip+
+| jxdefaultTipModel           | +org.jdesktop.swingx.tips.DefaultTipOfTheDayModel+
+| jxdialog                    | +org.jdesktop.swingx.JXDialog+
+| jxdivider                   | +org.jdesktop.swingx.MultiSplitLayout.Divider+
+| jxdropShadowBorder          | +org.jdesktop.swingx.border.DropShadowBorder+
+| jxeditorPane                | +org.jdesktop.swingx.JXEditorPane+
+| jxemptyIcon                 | +org.jdesktop.swingx.icon.EmptyIcon+
+| jxerrorPane                 | +org.jdesktop.swingx.JXErrorPane+
+| jxeyeDropperColorChooser    | +org.jdesktop.swingx.color.EyeDropperColorChooserPanel+
+| jxfastBlurFilter            | +org.jdesktop.swingx.image.FastBlurFilter+
+| jxfindBar                   | +org.jdesktop.swingx.JXFindBar+
+| jxfindPanel                 | +org.jdesktop.swingx.JXFindPanel+
+| jxframe                     | +org.jdesktop.swingx.JXFrame+
+| jxgaussianBlurFilter        | +org.jdesktop.swingx.image.GaussianBlurFilter+
+| jxglossPainter              | +org.jdesktop.swingx.painter.GlossPainter+
+| jxglowPathEffect            | +org.jdesktop.swingx.painter.effects.GlowPathEffect+
+| jxgradientChooser           | +org.jdesktop.swingx.JXGradientChooser+
+| jxgradientPreviewPanel      | +org.jdesktop.swingx.color.GradientPreviewPanel+
+| jxgraph                     | +org.jdesktop.swingx.JXGraph+
+| jxheader                    | +org.jdesktop.swingx.JXHeader+
+| jxhorizontalLayout          | +org.jdesktop.swingx.HorizontalLayout+
+| jxhyperlink                 | +org.jdesktop.swingx.JXHyperlink+
+| jxiconBorder                | +org.jdesktop.swingx.border.IconBorder+
+| jximagePainter              | +org.jdesktop.swingx.painter.ImagePainter+
+| jximagePanel                | +org.jdesktop.swingx.JXImagePanel+
+| jximageView                 | +org.jdesktop.swingx.JXImageView+
+| jxinnerGlowPathEffect       | +org.jdesktop.swingx.painter.effects.InnerGlowPathEffect+
+| jxinnerShadowPathEffect     | +org.jdesktop.swingx.painter.effects.InnerShadowPathEffect+
+| jxlabel                     | +org.jdesktop.swingx.JXLabel+
+| jxleaf                      | +org.jdesktop.swingx.MultiSplitLayout.Leaf+
+| jxlist                      | +org.jdesktop.swingx.JXList+
+| jxlistComboBoxModel         | +org.jdesktop.swingx.combobox.ListComboBoxModel+
+| jxloginPanel                | +org.jdesktop.swingx.JXLoginPane+
+| jxmapComboBoxModel          | +org.jdesktop.swingx.combobox.MapComboBoxModel+
+| jxmattePainter              | +org.jdesktop.swingx.painter.MattePainter+
+| jxmonthView                 | +org.jdesktop.swingx.JXMonthView+
+| jxmultiSplitLayout          | +org.jdesktop.swingx.MultiSplitLayout+
+| jxmultiSplitPane            | +org.jdesktop.swingx.JXMultiSplitPane+
+| jxneonBorderEffect          | +org.jdesktop.swingx.painter.effects.NeonBorderEffect+
+| jxpainterHighlighter        | +org.jdesktop.swingx.decorator.PainterHighlighter+
+| jxpanel                     | +org.jdesktop.swingx.JXPanel+
+| jxpinstripePainter          | +org.jdesktop.swingx.painter.PinstripePainter+
+| jxradioGroup                | +org.jdesktop.swingx.JXRadioGroup+
+| jxrectanglePainter          | +org.jdesktop.swingx.painter.RectanglePainter+
+| jxrootPane                  | +org.jdesktop.swingx.JXRootPane+
+| jxsearchPanel               | +org.jdesktop.swingx.JXSearchPanel+
+| jxshadowPathEffect          | +org.jdesktop.swingx.painter.effects.ShadowPathEffect+
+| jxshapePainter              | +org.jdesktop.swingx.painter.ShapePainter+
+| jxsimpleStripingHighlighter | +org.jdesktop.swingx.decorator.Highlighter+
+| jxsplit                     | +org.jdesktop.swingx.MultiSplitLayout.Split+
+| jxstackBlurFilter           | +org.jdesktop.swingx.image.StackBlurFilter+
+| jxstackLayout               | +org.jdesktop.swingx.StackLayout+
+| jxstatusBar                 | +org.jdesktop.swingx.JXStatusBar+
+| jxtable                     | +org.jdesktop.swingx.JXTable+
+| jxtableHeader               | +org.jdesktop.swingx.JXTableHeader+
+| jxtaskPane                  | +org.jdesktop.swingx.JXTaskPane+
+| jxtaskPaneContainer         | +org.jdesktop.swingx.JXTaskPaneContainer+
+| jxtextPainter               | +org.jdesktop.swingx.painter.TextPainter+
+| jxtipOfTheDay               | +org.jdesktop.swingx.JXTipOfTheDay+
+| jxtitledPanel               | +org.jdesktop.swingx.JXTitledPanel+
+| jxtitledSeparator           | +org.jdesktop.swingx.JXTitledSeparator+
+| jxtree                      | +org.jdesktop.swingx.JXTree+
+| jxtreeTable                 | +org.jdesktop.swingx.JXTreeTable+
+| jxverticalLayout            | +org.jdesktop.swingx.VerticalLayout+
+|===
+

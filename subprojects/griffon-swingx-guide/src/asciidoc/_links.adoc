@@ -1,0 +1,3 @@
+
+:link_swingx: link:https://swingx.java.net/[SwingX, window="_blank"]
+:api_link_swingxpane: link:api/griffon/javafx/scene/layout/MigLayoutPane.html[griffon.javafx.scene.layout.MigLayoutPane, window="_blank"]

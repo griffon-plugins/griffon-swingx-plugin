@@ -1,0 +1,30 @@
+apply plugin: 'groovy'
+apply from: rootProject.file('gradle/code-coverage.gradle')
+
+dependencies {
+    compileOnly "org.codehaus.griffon:griffon-core-compile:${griffonVersion}"
+
+    compile "org.swinglabs.swingx:swingx-all:$swingxVersion"
+    compile('org.codehaus.griffon:swingxbuilder:0.3') {
+        exclude group: 'org.codehaus.groovy', module: 'groovy-all'
+        exclude group:'org.swinglabs',        module: 'swing-worker'
+        exclude group:'org.swinglabs.swingx', module: 'swingx-action'
+        exclude group:'org.swinglabs.swingx', module: 'swingx-common'
+        exclude group:'org.swinglabs.swingx', module: 'swingx-core'
+        exclude group:'org.swinglabs.swingx', module: 'swingx-autocomplete'
+        exclude group:'org.swinglabs.swingx', module: 'swingx-plaf'
+        exclude group:'org.swinglabs.swingx', module: 'swingx-painters'
+        exclude group:'org.swinglabs.swingx', module: 'swingx-graphics'
+        exclude group:'org.swinglabs.swingx', module: 'swingx-beaninfo'
+    }
+
+    compile "org.codehaus.griffon:griffon-swing-groovy:${griffonVersion}"
+
+    testCompile "org.codehaus.griffon:griffon-core-test:$griffonVersion"
+
+    testRuntime "org.codehaus.griffon:griffon-guice:$griffonVersion"
+    testRuntime "org.codehaus.griffon:griffon-groovy:${griffonVersion}"
+    testRuntime 'org.slf4j:slf4j-simple:1.7.7'
+}
+
+compileGroovy.enabled = false

@@ -1,0 +1,89 @@
+
+[[_configuration]]
+= Configuration
+:groupId: org.codehaus.griffon.plugins
+
+== Gradle
+
+You have two options for configuring this plugin: automatic and manual.
+
+=== Automatic
+
+As long as the project has the `org.codehaus.griffon.griffon` plugin applied to it you
+may include the following snippet in +build.gradle+
+
+[source,groovy,options="nowrap"]
+[subs="attributes"]
+----
+dependencies {
+    griffon '{groupId}:griffon-swingx-plugin:{project-version}'
+}
+----
+
+The `griffon` plugin will take care of the rest given its configuration.
+
+=== Manual
+
+You will need to configure any of the following blocks depending on your setup
+
+.Java + Swing
+[source,groovy,options="nowrap"]
+[subs="attributes"]
+----
+dependencies {
+    compile 'org.swinglabs.swingx:swingx-all:{swingx-version}'
+}
+----
+
+.Groovy + Swing
+[source,groovy,options="nowrap"]
+[subs="attributes"]
+----
+dependencies {
+    compile '{groupId}:griffon-swingx-swing-groovy:{project-version}'
+}
+----
+
+== Maven
+
+First configure the `griffon-swingx-plugin` BOM in your POM file, by placing the following
+snippet before the `<build>` element
+
+[source,xml,options="nowrap"]
+[subs="attributes,verbatim"]
+----
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>{groupId}</groupId>
+            <artifactId>griffon-swingx-plugin</artifactId>
+            <version>{project-version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+----
+
+Next configure dependencies as required by your particular setup
+
+.Java + Swing
+[source,xml,options="nowrap"]
+[subs="attributes,verbatim"]
+----
+<dependency>
+    <groupId>org.swinglabs.swingx</groupId>
+    <artifactId>swingx-all</artifactId>
+</dependency>
+----
+
+.Groovy + Swing
+[source,xml,options="nowrap"]
+[subs="attributes,verbatim"]
+----
+<dependency>
+    <groupId>{groupId}</groupId>
+    <artifactId>griffon-swingx-swing-groovy</artifactId>
+</dependency>
+----
+

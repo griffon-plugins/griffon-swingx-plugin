@@ -1,0 +1,15 @@
+= griffon-swingx-plugin
+:version: 1.0.0.SNAPSHOT
+:linkattrs:
+
+image:http://img.shields.io/travis/griffon-plugins/griffon-swingx-plugin/master.svg["Build Status", link="https://travis-ci.org/griffon-plugins/griffon-swingx-plugin"]
+image:http://img.shields.io/coveralls/griffon-plugins/griffon-swingx-plugin/master.svg["Coverage Status", link="https://coveralls.io/r/griffon-plugins/griffon-swingx-plugin"]
+image:http://img.shields.io/:semver-{version}-blue.svg["Semantic Versioning", link="http://semver.org"]
+image:http://img.shields.io/badge/license-ASF2-blue.svg["Apache License 2", link="http://www.apache.org/licenses/LICENSE-2.0.txt"]
+
+---
+
+Provides new UI components based on https://swingx.java.net/[SwingX, window="_blank"].
+
+Refer to the link:http://griffon-plugins.github.io/griffon-swingx-plugin/[plugin guide, window="_blank"] for
+further information on configuration and usage.

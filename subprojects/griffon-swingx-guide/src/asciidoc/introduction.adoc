@@ -1,0 +1,6 @@
+
+[[_introduction]]
+= Introduction
+
+Provides new UI components based on {link_swingx}.
+
