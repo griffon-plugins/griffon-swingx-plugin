@@ -6,16 +6,16 @@ dependencies {
 
     compile "org.swinglabs.swingx:swingx-all:$swingxVersion"
     compile('org.codehaus.griffon:swingxbuilder:0.3') {
-        exclude group: 'org.codehaus.groovy', module: 'groovy-all'
-        exclude group:'org.swinglabs',        module: 'swing-worker'
-        exclude group:'org.swinglabs.swingx', module: 'swingx-action'
-        exclude group:'org.swinglabs.swingx', module: 'swingx-common'
-        exclude group:'org.swinglabs.swingx', module: 'swingx-core'
-        exclude group:'org.swinglabs.swingx', module: 'swingx-autocomplete'
-        exclude group:'org.swinglabs.swingx', module: 'swingx-plaf'
-        exclude group:'org.swinglabs.swingx', module: 'swingx-painters'
-        exclude group:'org.swinglabs.swingx', module: 'swingx-graphics'
-        exclude group:'org.swinglabs.swingx', module: 'swingx-beaninfo'
+        exclude group: 'org.codehaus.groovy',  module: 'groovy-all'
+        exclude group: 'org.swinglabs',        module: 'swing-worker'
+        exclude group: 'org.swinglabs.swingx', module: 'swingx-action'
+        exclude group: 'org.swinglabs.swingx', module: 'swingx-common'
+        exclude group: 'org.swinglabs.swingx', module: 'swingx-core'
+        exclude group: 'org.swinglabs.swingx', module: 'swingx-autocomplete'
+        exclude group: 'org.swinglabs.swingx', module: 'swingx-plaf'
+        exclude group: 'org.swinglabs.swingx', module: 'swingx-painters'
+        exclude group: 'org.swinglabs.swingx', module: 'swingx-graphics'
+        exclude group: 'org.swinglabs.swingx', module: 'swingx-beaninfo'
     }
 
     compile "org.codehaus.griffon:griffon-swing-groovy:${griffonVersion}"
