@@ -1,7 +1,6 @@
 
 [[_configuration]]
 = Configuration
-:groupId: org.codehaus.griffon.plugins
 
 == Gradle
 
@@ -10,13 +9,13 @@ You have two options for configuring this plugin: automatic and manual.
 === Automatic
 
 As long as the project has the `org.codehaus.griffon.griffon` plugin applied to it you
-may include the following snippet in +build.gradle+
+may include the following snippet in `build.gradle`
 
 [source,groovy,options="nowrap"]
 [subs="attributes"]
 ----
 dependencies {
-    griffon '{groupId}:griffon-swingx-plugin:{project-version}'
+    griffon '{project-group}:griffon-swingx-plugin:{project-version}'
 }
 ----
 
@@ -40,7 +39,7 @@ dependencies {
 [subs="attributes"]
 ----
 dependencies {
-    compile '{groupId}:griffon-swingx-swing-groovy:{project-version}'
+    compile '{project-group}:griffon-swingx-swing-groovy:{project-version}'
 }
 ----
 
@@ -55,7 +54,7 @@ snippet before the `<build>` element
 <dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>{groupId}</groupId>
+            <groupId>{project-group}</groupId>
             <artifactId>griffon-swingx-plugin</artifactId>
             <version>{project-version}</version>
             <type>pom</type>
@@ -82,7 +81,7 @@ Next configure dependencies as required by your particular setup
 [subs="attributes,verbatim"]
 ----
 <dependency>
-    <groupId>{groupId}</groupId>
+    <groupId>{project-group}</groupId>
     <artifactId>griffon-swingx-swing-groovy</artifactId>
 </dependency>
 ----
