@@ -8,7 +8,6 @@ buildscript {
     dependencies {
         classpath 'org.codehaus.griffon:gradle-griffon-plugin:2.0.0'
         classpath 'org.codehaus.griffon:gradle-griffon-build-plugin:2.0.0'
-        classpath 'net.saliman:gradle-cobertura-plugin:2.2.5'
         classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.0.1'
         classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.11.0'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:0.6'
@@ -48,6 +47,14 @@ allprojects {
         }
     }
 }
+
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = jacocoVersion
+}
+
+ext.jacocoProjects = []
 
 subprojects { subproj ->
     plugins.withType(JavaPlugin) {
@@ -129,3 +136,22 @@ githubPages {
 }
 
 publishGhPages.dependsOn(project(":${pluginBaseName}-guide").guide)
+
+coveralls {
+    sourceDirs = files(jacocoProjects.sourceSets.main.allSource.srcDirs).files.absolutePath
+}
+
+task jacocoRootReport(type: org.gradle.testing.jacoco.tasks.JacocoReport) {
+    dependsOn = jacocoProjects.test
+    additionalSourceDirs = files(jacocoProjects.sourceSets.main.allSource.srcDirs)
+    sourceDirectories = files(jacocoProjects.sourceSets.main.allSource.srcDirs)
+    classDirectories =  files(jacocoProjects.sourceSets.main.output)
+    executionData = files(jacocoProjects.jacocoTestReport.executionData)
+    reports {
+        html.enabled = true
+        xml.enabled = true
+        csv.enabled = false
+        html.destination = "${buildDir}/reports/jacoco/test/html"
+        xml.destination = "${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
+    }
+}
