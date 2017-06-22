@@ -4,3 +4,5 @@
 
 Provides new UI components based on {link_swingx}.
 
+Griffon version: {griffon-version}
+
