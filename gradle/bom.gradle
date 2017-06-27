@@ -2,9 +2,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
 generateBom {
-    additionalDependencies = [
-        "org.swinglabs.swingx:swingx-all:$swingxVersion"
-    ]
+    additionalDependencies = []
 }
 
 publishing {

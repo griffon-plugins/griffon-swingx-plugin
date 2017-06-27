@@ -2,7 +2,7 @@ apply plugin: 'groovy'
 apply from: rootProject.file('gradle/code-coverage.gradle')
 
 dependencies {
-    compileOnly "org.codehaus.griffon:griffon-core-compile:${griffonVersion}"
+    compileOnly "org.codehaus.griffon:griffon-core-compile:$griffonVersion"
 
     compile "org.swinglabs.swingx:swingx-all:$swingxVersion"
     compile('org.codehaus.griffon:swingxbuilder:0.3') {
@@ -18,13 +18,13 @@ dependencies {
         exclude group: 'org.swinglabs.swingx', module: 'swingx-beaninfo'
     }
 
-    compile "org.codehaus.griffon:griffon-swing-groovy:${griffonVersion}"
+    compile "org.codehaus.griffon:griffon-swing-groovy:$griffonVersion"
 
     testCompile "org.codehaus.griffon:griffon-core-test:$griffonVersion"
 
     testRuntime "org.codehaus.griffon:griffon-guice:$griffonVersion"
-    testRuntime "org.codehaus.griffon:griffon-groovy:${griffonVersion}"
-    testRuntime 'org.slf4j:slf4j-simple:1.7.12'
+    testRuntime "org.codehaus.griffon:griffon-groovy:$griffonVersion"
+    testRuntime "org.slf4j:slf4j-simple:$slf4jVersion"
 }
 
 compileGroovy.enabled = false
